@@ -41,6 +41,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'Backend.urls'
 
+AUTH_USER_MODEL = 'bibliotheque.Etudiant'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
