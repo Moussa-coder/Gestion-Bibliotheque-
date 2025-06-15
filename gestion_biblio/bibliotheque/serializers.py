@@ -3,9 +3,10 @@ from .models import Livre, Emprunt, Etudiant, Notification
 from django.contrib.auth import get_user_model
 
 class EtudiantSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True, required=False)
     class Meta:
         model = get_user_model()
-        fields = ['id', 'username', 'email', 'departement', 'filiere']
+        fields = ['id', 'username', 'email', 'departement', 'filiere', 'password']
         
 class LivreSerializer(serializers.ModelSerializer):
     class Meta:
