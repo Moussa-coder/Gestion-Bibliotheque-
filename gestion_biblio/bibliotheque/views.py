@@ -46,7 +46,7 @@ def register_etudiant(request):
         user = User.objects.create_user(
             username=serializer.validated_data['username'],
             email=serializer.validated_data['email'],
-            password=request.data.get('password'),  # 🔐 Mot de passe transmis brut
+            password=request.data.get('password'),  #Mot de passe transmis brut
             departement=serializer.validated_data['departement'],
             filiere=serializer.validated_data['filiere'],
         )
@@ -56,8 +56,6 @@ def register_etudiant(request):
 @api_view(['GET'])
 @permission_classes([permissions.IsAuthenticated])
 def get_connected_user(request):
-    """
-    Retourne les informations de l'utilisateur connecté.
-    """
+    
     serializer = EtudiantSerializer(request.user)
     return Response(serializer.data)
